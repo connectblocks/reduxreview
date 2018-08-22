@@ -10,6 +10,19 @@ import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
+import Raven from 'raven-js';
+
+Raven.config('https://a91dfc23f89f409382a387bf64ea5e94@sentry.io/1267116', {
+    tags: {
+        git_commit: 'abc',
+        userLevel: 'editor'
+    }
+}).install()
+
+Raven.captureMessage('something bad happaned');
+Raven.showReportDialog();
+
+
 const router = (
     <Provider store={store}>
         <Router history={history}>
