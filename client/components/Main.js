@@ -11,7 +11,6 @@ class Main extends React.Component {
                 {React.cloneElement(this.props.children, this.props)}
             </div>
         )
-
     }
 }
 
