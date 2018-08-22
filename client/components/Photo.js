@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import { Link } from 'react-router';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -10,7 +10,7 @@ class Photo extends React.Component {
                     <Link to={`/view/${this.props.post.code}`}>
                         <img src={`${this.props.post.display_src}`} alt={this.props.post.caption} className="grid-photo"/>
                     </ Link>
-                    <CSSTransitionGroup trasitionName="like"
+                    <CSSTransitionGroup transitionName="like"
                       transitionEnterTimeout={500}
                       transitionLeaveTimeout={500}>
                       <span key={this.props.post.likes} className="likes-heart">
@@ -21,7 +21,7 @@ class Photo extends React.Component {
                 <figcaption>
                     <p>{this.props.post.caption}</p>
                     <div className="control-buttons">
-                        <button className="likes">&hearts; {this.props.post.likes}</button>
+                        <button onClick={this.props.increment.bind(null, this.props.i)} className="likes">&hearts; {this.props.post.likes}</button>
                         <Link className="button" to={`/view/${this.props.post.code}`}>
                             <span className="comment-count">
                                 <span className="speech-bubble"></span>
